@@ -63,8 +63,8 @@
             this.optiuniToolStripMenuItem,
             this.lab1ToolStripMenuItem,
             this.lab2ToolStripMenuItem,
-            this.lab3ToolStripMenuItem,
             this.lAb4ToolStripMenuItem,
+            this.lab3ToolStripMenuItem,
             this.lab5ToolStripMenuItem,
             this.lab6ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -128,8 +128,8 @@
             // lAb4ToolStripMenuItem
             // 
             this.lAb4ToolStripMenuItem.Name = "lAb4ToolStripMenuItem";
-            this.lAb4ToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.lAb4ToolStripMenuItem.Text = "Lab4";
+            this.lAb4ToolStripMenuItem.Size = new System.Drawing.Size(205, 20);
+            this.lAb4ToolStripMenuItem.Text = " Mediere şi filtrare spaţială trece-jos";
             this.lAb4ToolStripMenuItem.Click += new System.EventHandler(this.lAb4ToolStripMenuItem_Click);
             // 
             // lab5ToolStripMenuItem
@@ -137,6 +137,7 @@
             this.lab5ToolStripMenuItem.Name = "lab5ToolStripMenuItem";
             this.lab5ToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.lab5ToolStripMenuItem.Text = "Lab5";
+            this.lab5ToolStripMenuItem.Click += new System.EventHandler(this.lab5ToolStripMenuItem_Click);
             // 
             // lab6ToolStripMenuItem
             // 
@@ -148,7 +149,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Location = new System.Drawing.Point(37, 33);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(314, 302);
             this.pictureBox1.TabIndex = 1;
@@ -157,7 +158,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Location = new System.Drawing.Point(408, 33);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(315, 302);
             this.pictureBox2.TabIndex = 2;
@@ -206,7 +207,7 @@
             // textBoxA
             // 
             this.textBoxA.Location = new System.Drawing.Point(859, 33);
-            this.textBoxA.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxA.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxA.Name = "textBoxA";
             this.textBoxA.Size = new System.Drawing.Size(76, 20);
             this.textBoxA.TabIndex = 7;
@@ -214,7 +215,7 @@
             // textBoxB
             // 
             this.textBoxB.Location = new System.Drawing.Point(859, 64);
-            this.textBoxB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxB.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxB.Name = "textBoxB";
             this.textBoxB.Size = new System.Drawing.Size(76, 20);
             this.textBoxB.TabIndex = 8;
@@ -222,7 +223,7 @@
             // textBoxVA
             // 
             this.textBoxVA.Location = new System.Drawing.Point(859, 100);
-            this.textBoxVA.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxVA.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxVA.Name = "textBoxVA";
             this.textBoxVA.Size = new System.Drawing.Size(76, 20);
             this.textBoxVA.TabIndex = 9;
@@ -230,7 +231,7 @@
             // textBoxVB
             // 
             this.textBoxVB.Location = new System.Drawing.Point(859, 132);
-            this.textBoxVB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxVB.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxVB.Name = "textBoxVB";
             this.textBoxVB.Size = new System.Drawing.Size(76, 20);
             this.textBoxVB.TabIndex = 10;
@@ -238,7 +239,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(817, 181);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(94, 24);
             this.button1.TabIndex = 11;
@@ -275,7 +276,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,8 +19,6 @@ namespace prelucrare_tema
         public Form1()
         {
             InitializeComponent();
-            lab3ToolStripMenuItem.Enabled = false;
-            lAb4ToolStripMenuItem.Enabled = false;
             lab5ToolStripMenuItem.Enabled = false;
             lab6ToolStripMenuItem.Enabled = false;
         }
@@ -379,7 +378,85 @@ namespace prelucrare_tema
             pictureBox2.Image = bmp1;
         }
 
-        private void lab3ToolStripMenuItem_Click(object sender, EventArgs e)
+        private unsafe void lab3ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Bitmap SrcImage = new Bitmap("C:\\Users\\Bogdan\\Desktop\\double.jpg");
+            Bitmap tempbmp = new Bitmap(SrcImage.Width, SrcImage.Height);
+
+            // Take source bitmap data.
+            BitmapData SrcData = SrcImage.LockBits(new Rectangle(0, 0, SrcImage.Width, SrcImage.Height), ImageLockMode.ReadOnly, PixelFormat.Format24bppRgb);
+
+            // Take destination bitmap data.
+            BitmapData DestData = tempbmp.LockBits(new Rectangle(0, 0, tempbmp.Width,
+                tempbmp.Height), ImageLockMode.ReadWrite, PixelFormat.Format24bppRgb);
+
+            // Element array to used to dilate.
+            byte[,] sElement = new byte[5, 5] {
+                    {4,2,1,0,0},
+                    {3,1,1,1,0},
+                    {1,2,1,1,1},
+                    {0,1,1,1,0},
+                    {0,0,1,0,0}
+                };
+
+            // Element array size.
+            int size = 5;
+            byte max, clrValue;
+            int radius = size / 2;
+            int ir, jr;
+
+            // Loop for Columns.
+            for (int colm = radius; colm < DestData.Height - radius; colm++)
+            {
+                // Initialise pointers to at row start.
+                byte* ptr = (byte*)SrcData.Scan0 + (colm * SrcData.Stride);
+                byte* dstPtr = (byte*)DestData.Scan0 + (colm * SrcData.Stride);
+
+                // Loop for Row item.
+                for (int row = radius; row < DestData.Width - radius; row++)
+                {
+                    max = 0;
+                    clrValue = 0;
+
+                    // Loops for element array.
+                    for (int eleColm = 0; eleColm < 5; eleColm++)
+                    {
+                        ir = eleColm - radius;
+                        byte* tempPtr = (byte*)SrcData.Scan0 +
+                            ((colm + ir) * SrcData.Stride);
+
+                        for (int eleRow = 0; eleRow < 5; eleRow++)
+                        {
+                            jr = eleRow - radius;
+
+                            // Get neightbour element color value.
+                            clrValue = (byte)((tempPtr[row * 3 + jr] +
+                                tempPtr[row * 3 + jr + 1] + tempPtr[row * 3 + jr + 2]) / 3);
+
+                            if (max < clrValue)
+                            {
+                                if (sElement[eleColm, eleRow] != 0)
+                                    max = clrValue;
+                            }
+                        }
+                    }
+
+                    dstPtr[0] = dstPtr[1] = dstPtr[2] = max;
+
+                    ptr += 3;
+                    dstPtr += 3;
+                }
+            }
+
+            // Dispose all Bitmap data.
+            SrcImage.UnlockBits(SrcData);
+            tempbmp.UnlockBits(DestData);
+
+            // return dilated bitmap.
+            pictureBox2.Image = tempbmp;
+        }
+
+        private void lab5ToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }

@@ -70,7 +70,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(982, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(969, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -121,15 +121,15 @@
             // lab3ToolStripMenuItem
             // 
             this.lab3ToolStripMenuItem.Name = "lab3ToolStripMenuItem";
-            this.lab3ToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.lab3ToolStripMenuItem.Text = "Lab3";
+            this.lab3ToolStripMenuItem.Size = new System.Drawing.Size(113, 20);
+            this.lab3ToolStripMenuItem.Text = "L3-Image Dilation";
             this.lab3ToolStripMenuItem.Click += new System.EventHandler(this.lab3ToolStripMenuItem_Click);
             // 
             // lAb4ToolStripMenuItem
             // 
             this.lAb4ToolStripMenuItem.Name = "lAb4ToolStripMenuItem";
-            this.lAb4ToolStripMenuItem.Size = new System.Drawing.Size(205, 20);
-            this.lAb4ToolStripMenuItem.Text = " Mediere şi filtrare spaţială trece-jos";
+            this.lAb4ToolStripMenuItem.Size = new System.Drawing.Size(222, 20);
+            this.lAb4ToolStripMenuItem.Text = " L3-Mediere şi filtrare spaţială trece-jos";
             this.lAb4ToolStripMenuItem.Click += new System.EventHandler(this.lAb4ToolStripMenuItem_Click);
             // 
             // lab5ToolStripMenuItem
@@ -261,7 +261,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(982, 418);
+            this.ClientSize = new System.Drawing.Size(969, 418);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBoxVB);

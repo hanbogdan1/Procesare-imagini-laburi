@@ -380,80 +380,51 @@ namespace prelucrare_tema
 
         private unsafe void lab3ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Bitmap SrcImage = new Bitmap("C:\\Users\\Bogdan\\Desktop\\double.jpg");
-            Bitmap tempbmp = new Bitmap(SrcImage.Width, SrcImage.Height);
+            Bitmap Image = new Bitmap("C:\\Users\\Bogdan\\Desktop\\double.jpg");
+            int Size = 2;
 
-            // Take source bitmap data.
-            BitmapData SrcData = SrcImage.LockBits(new Rectangle(0, 0, SrcImage.Width, SrcImage.Height), ImageLockMode.ReadOnly, PixelFormat.Format24bppRgb);
-
-            // Take destination bitmap data.
-            BitmapData DestData = tempbmp.LockBits(new Rectangle(0, 0, tempbmp.Width,
-                tempbmp.Height), ImageLockMode.ReadWrite, PixelFormat.Format24bppRgb);
-
-            // Element array to used to dilate.
-            byte[,] sElement = new byte[5, 5] {
-                    {4,2,1,0,0},
-                    {3,1,1,1,0},
-                    {1,2,1,1,1},
-                    {0,1,1,1,0},
-                    {0,0,1,0,0}
-                };
-
-            // Element array size.
-            int size = 5;
-            byte max, clrValue;
-            int radius = size / 2;
-            int ir, jr;
-
-            // Loop for Columns.
-            for (int colm = radius; colm < DestData.Height - radius; colm++)
+            System.Drawing.Bitmap TempBitmap = Image;
+            System.Drawing.Bitmap NewBitmap = new System.Drawing.Bitmap(TempBitmap.Width, TempBitmap.Height);
+            System.Drawing.Graphics NewGraphics = System.Drawing.Graphics.FromImage(NewBitmap);
+            NewGraphics.DrawImage(TempBitmap, new System.Drawing.Rectangle(0, 0, TempBitmap.Width, TempBitmap.Height), new System.Drawing.Rectangle(0, 0, TempBitmap.Width, TempBitmap.Height), System.Drawing.GraphicsUnit.Pixel);
+            NewGraphics.Dispose();
+            Random TempRandom = new Random();
+            int ApetureMin = -(Size / 2);
+            int ApetureMax = (Size / 2);
+            for (int x = 0; x < NewBitmap.Width; ++x)
             {
-                // Initialise pointers to at row start.
-                byte* ptr = (byte*)SrcData.Scan0 + (colm * SrcData.Stride);
-                byte* dstPtr = (byte*)DestData.Scan0 + (colm * SrcData.Stride);
-
-                // Loop for Row item.
-                for (int row = radius; row < DestData.Width - radius; row++)
+                for (int y = 0; y < NewBitmap.Height; ++y)
                 {
-                    max = 0;
-                    clrValue = 0;
-
-                    // Loops for element array.
-                    for (int eleColm = 0; eleColm < 5; eleColm++)
+                    int RValue = 0;
+                    int GValue = 0;
+                    int BValue = 0;
+                    for (int x2 = ApetureMin; x2 < ApetureMax; ++x2)
                     {
-                        ir = eleColm - radius;
-                        byte* tempPtr = (byte*)SrcData.Scan0 +
-                            ((colm + ir) * SrcData.Stride);
-
-                        for (int eleRow = 0; eleRow < 5; eleRow++)
+                        int TempX = x + x2;
+                        if (TempX >= 0 && TempX < NewBitmap.Width)
                         {
-                            jr = eleRow - radius;
-
-                            // Get neightbour element color value.
-                            clrValue = (byte)((tempPtr[row * 3 + jr] +
-                                tempPtr[row * 3 + jr + 1] + tempPtr[row * 3 + jr + 2]) / 3);
-
-                            if (max < clrValue)
+                            for (int y2 = ApetureMin; y2 < ApetureMax; ++y2)
                             {
-                                if (sElement[eleColm, eleRow] != 0)
-                                    max = clrValue;
+                                int TempY = y + y2;
+                                if (TempY >= 0 && TempY < NewBitmap.Height)
+                                {
+                                    Color TempColor = TempBitmap.GetPixel(TempX, TempY);
+                                    if (TempColor.R > RValue)
+                                        RValue = TempColor.R;
+                                    if (TempColor.G > GValue)
+                                        GValue = TempColor.G;
+                                    if (TempColor.B > BValue)
+                                        BValue = TempColor.B;
+                                }
                             }
                         }
                     }
-
-                    dstPtr[0] = dstPtr[1] = dstPtr[2] = max;
-
-                    ptr += 3;
-                    dstPtr += 3;
+                    Color TempPixel = Color.FromArgb(RValue, GValue, BValue);
+                    NewBitmap.SetPixel(x, y, TempPixel);
                 }
             }
 
-            // Dispose all Bitmap data.
-            SrcImage.UnlockBits(SrcData);
-            tempbmp.UnlockBits(DestData);
-
-            // return dilated bitmap.
-            pictureBox2.Image = tempbmp;
+            pictureBox2.Image = NewBitmap;
         }
 
         private void lab5ToolStripMenuItem_Click(object sender, EventArgs e)

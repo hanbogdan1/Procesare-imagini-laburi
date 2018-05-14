@@ -35,8 +35,8 @@
             this.iesireToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lab1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lab2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lab3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lAb4ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lab3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lab5ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lab6ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -51,6 +51,8 @@
             this.textBoxVB = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
+            this.incareImg2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lab4ConturToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -66,7 +68,8 @@
             this.lAb4ToolStripMenuItem,
             this.lab3ToolStripMenuItem,
             this.lab5ToolStripMenuItem,
-            this.lab6ToolStripMenuItem});
+            this.lab6ToolStripMenuItem,
+            this.lab4ConturToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
@@ -79,7 +82,8 @@
             this.optiuniToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.incarcareToolStripMenuItem,
             this.salvareToolStripMenuItem,
-            this.iesireToolStripMenuItem});
+            this.iesireToolStripMenuItem,
+            this.incareImg2ToolStripMenuItem});
             this.optiuniToolStripMenuItem.Name = "optiuniToolStripMenuItem";
             this.optiuniToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.optiuniToolStripMenuItem.Text = "Optiuni";
@@ -87,21 +91,21 @@
             // incarcareToolStripMenuItem
             // 
             this.incarcareToolStripMenuItem.Name = "incarcareToolStripMenuItem";
-            this.incarcareToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.incarcareToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.incarcareToolStripMenuItem.Text = "Incarcare";
             this.incarcareToolStripMenuItem.Click += new System.EventHandler(this.incarcareToolStripMenuItem_Click);
             // 
             // salvareToolStripMenuItem
             // 
             this.salvareToolStripMenuItem.Name = "salvareToolStripMenuItem";
-            this.salvareToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.salvareToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.salvareToolStripMenuItem.Text = "Salvare";
             this.salvareToolStripMenuItem.Click += new System.EventHandler(this.salvareToolStripMenuItem_Click);
             // 
             // iesireToolStripMenuItem
             // 
             this.iesireToolStripMenuItem.Name = "iesireToolStripMenuItem";
-            this.iesireToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.iesireToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.iesireToolStripMenuItem.Text = "Iesire";
             // 
             // lab1ToolStripMenuItem
@@ -118,13 +122,6 @@
             this.lab2ToolStripMenuItem.Text = "Lab2";
             this.lab2ToolStripMenuItem.Click += new System.EventHandler(this.lab2ToolStripMenuItem_Click);
             // 
-            // lab3ToolStripMenuItem
-            // 
-            this.lab3ToolStripMenuItem.Name = "lab3ToolStripMenuItem";
-            this.lab3ToolStripMenuItem.Size = new System.Drawing.Size(113, 20);
-            this.lab3ToolStripMenuItem.Text = "L3-Image Dilation";
-            this.lab3ToolStripMenuItem.Click += new System.EventHandler(this.lab3ToolStripMenuItem_Click);
-            // 
             // lAb4ToolStripMenuItem
             // 
             this.lAb4ToolStripMenuItem.Name = "lAb4ToolStripMenuItem";
@@ -132,18 +129,25 @@
             this.lAb4ToolStripMenuItem.Text = " L3-Mediere şi filtrare spaţială trece-jos";
             this.lAb4ToolStripMenuItem.Click += new System.EventHandler(this.lAb4ToolStripMenuItem_Click);
             // 
+            // lab3ToolStripMenuItem
+            // 
+            this.lab3ToolStripMenuItem.Name = "lab3ToolStripMenuItem";
+            this.lab3ToolStripMenuItem.Size = new System.Drawing.Size(113, 20);
+            this.lab3ToolStripMenuItem.Text = "L3-Image Dilation";
+            this.lab3ToolStripMenuItem.Click += new System.EventHandler(this.lab3ToolStripMenuItem_Click);
+            // 
             // lab5ToolStripMenuItem
             // 
             this.lab5ToolStripMenuItem.Name = "lab5ToolStripMenuItem";
-            this.lab5ToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.lab5ToolStripMenuItem.Text = "Lab5";
+            this.lab5ToolStripMenuItem.Size = new System.Drawing.Size(196, 20);
+            this.lab5ToolStripMenuItem.Text = "Lab4 -scheletizare si reconstrucţie";
             this.lab5ToolStripMenuItem.Click += new System.EventHandler(this.lab5ToolStripMenuItem_Click);
             // 
             // lab6ToolStripMenuItem
             // 
             this.lab6ToolStripMenuItem.Name = "lab6ToolStripMenuItem";
-            this.lab6ToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.lab6ToolStripMenuItem.Text = "Lab6";
+            this.lab6ToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
+            this.lab6ToolStripMenuItem.Text = "lab4-subtiere";
             this.lab6ToolStripMenuItem.Click += new System.EventHandler(this.lab6ToolStripMenuItem_Click);
             // 
             // pictureBox1
@@ -257,6 +261,20 @@
             this.label5.TabIndex = 12;
             this.label5.Text = "label5";
             // 
+            // incareImg2ToolStripMenuItem
+            // 
+            this.incareImg2ToolStripMenuItem.Name = "incareImg2ToolStripMenuItem";
+            this.incareImg2ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.incareImg2ToolStripMenuItem.Text = "Incare img 2";
+            this.incareImg2ToolStripMenuItem.Click += new System.EventHandler(this.incareImg2ToolStripMenuItem_Click);
+            // 
+            // lab4ConturToolStripMenuItem
+            // 
+            this.lab4ConturToolStripMenuItem.Name = "lab4ConturToolStripMenuItem";
+            this.lab4ConturToolStripMenuItem.Size = new System.Drawing.Size(87, 20);
+            this.lab4ConturToolStripMenuItem.Text = "lab4 - contur";
+            this.lab4ConturToolStripMenuItem.Click += new System.EventHandler(this.lab4ConturToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -313,6 +331,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ToolStripMenuItem lab5ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem lab6ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem incareImg2ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem lab4ConturToolStripMenuItem;
     }
 }
 
